@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script defer src='index.js'></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class='header'>
+        <p> The store </p>
+        <div class='filter'>
+            <select name="category" id="category">
+                <option selected="selected">Please select your filter</option>
+                <option value="men's">men's</option>
+                <option value="jewelery">jewelery</option>
+                <option value="electronics">electronics</option>
+                <option value="women's">women's</option>
+            </select>
+        </div>
+        
+    </div>
+    <div class='create'>
+        <form id='prod-form'>
+            <label for="title">Title:</label><br>
+            <input id="title" name="title" ></input><br><br>
+            <label for="price">Price:</label><br>
+            <input id="price" name="price" ></input><br><br>
+            <label for="descr">Description:</label><br>
+            <input id="descr" name="descr"></input><br><br>
+            <label for="category">Category:</label><br>
+            <input id="category" name="category"></input><br><br>
+            <label for="image">Image:</label><br>
+            <input id="image" name="image"></input><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class='products'>
+
+    </div>
