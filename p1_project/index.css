@@ -1,0 +1,43 @@
+body{
+    margin: 0px;
+    background-color: #E3D8F1;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: #5d5f71;
+
+}
+
+.header > p{
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+
+
+.memes{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.meme-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 400px;
+    height: 500px;
+    border-width: 2px;
+    margin: 2px 2px 2px 2px;
+    border-style: solid;
+    border-color: #BF8B85;
+    
+}
+
+

@@ -1,5 +1,4 @@
-{
-  "items": [
+const data =  [
     {
       "id": 1,
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -159,30 +158,5 @@
       "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
       "category": "women's clothing",
       "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
-    },
-    {
-      "title": "horse",
-      "price": "32",
-      "descr": "fast",
-      "category": "animal",
-      "image": "hhh",
-      "id": 21
-    },
-    {
-      "title": "Horse",
-      "price": "25",
-      "descr": "fast",
-      "category": "animal",
-      "image": "hhh",
-      "id": 22
-    },
-    {
-      "title": "Horse",
-      "price": "25",
-      "descr": "fast",
-      "category": "animal",
-      "image": "hhh",
-      "id": 23
     }
   ]
-}
