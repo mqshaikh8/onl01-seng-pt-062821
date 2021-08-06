@@ -37,7 +37,15 @@ body{
     margin: 2px 2px 2px 2px;
     border-style: solid;
     border-color: #BF8B85;
-    
+}
+
+.meme-name{
+    text-align: center;
+}
+
+.meme-image{
+    height: 400px;
+    width: 400px;
 }
 
 
