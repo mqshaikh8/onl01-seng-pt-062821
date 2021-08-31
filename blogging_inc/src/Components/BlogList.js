@@ -1,9 +1,11 @@
 import Blog from "./Blog"
-const BlogList = ({blogs}) => {
-    console.log(blogs)
-    const renderer = () => blogs.map((blog, index) => <Blog blog={blog} index={index}/>)
+import '../css/BlogList.css'
+const BlogList = ({quotes}) => {
+    // debugger
+
+    const renderer = () => quotes.map((blog, index) => <Blog quote={blog} index={index}/>)
     return (
-        <div>
+        <div className='blogList'>
             {renderer()}
         </div>
         

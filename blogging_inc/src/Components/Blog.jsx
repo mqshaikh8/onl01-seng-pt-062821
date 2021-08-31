@@ -1,16 +1,13 @@
-
-
+import '../css/Blog.css'
 const Blog = (props) => {
-    const {title,Content} = props.blog
-
     console.log(props)
+    const {anime, quote, character} = props.quote
     return(
-        <div key={props.index}>
-                <p>title</p>
-                <p>{title}</p>
-                <p>Content</p>
-                <p>{Content}</p>
-            </div>
+        <div key={props.id} className='blog'>
+            <h4>{ anime }</h4>
+             <p>{ quote }</p>
+             <p>By: { character }</p>
+        </div>
     )
 }
 
