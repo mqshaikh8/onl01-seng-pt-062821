@@ -1,16 +1,29 @@
 import {useState} from 'react';
 
 const Form = (props) => {
+  console.log(props, 'in Form')
+  const {create} = props
   const [anime, setAnime] = useState()
-  const [char, setChar] = useState()
+  const [character, setChar] = useState()
   const [quote, setQuote] = useState()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const data = {
-      anime, char, quote
+      anime, character, quote
     }
-    props.create(data)
+    fetch(`http://localhost:3000/quotes`,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then((data) => {
+      create(data)
+
+    })
   }
 
     return (
