@@ -1,0 +1,13 @@
+.blog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 400px;
+    height: 500px;
+    border-width: 2px;
+    margin: 2px 2px 2px 2px;
+    border-style: solid;
+    border-color: brown;
+    overflow-x: scroll;
+}

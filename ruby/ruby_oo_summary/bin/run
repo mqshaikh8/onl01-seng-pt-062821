@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/enviroment'
+
+puts 'ruby ruby ruby'
+
+bank = Bank.new('Chase')
+
+bank_one = Bank.new('Bank of America')
+
+customer = Customer.new('MoJoYo')
+
+binding.pry

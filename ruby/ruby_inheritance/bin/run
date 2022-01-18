@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/enviroment'
+
+owner = Owner.new('Yonatan')
+
+owner.adopt('cat',"lucy", "Brown", "Happy", "10", 5)
+owner.adopt('bird', "bird", "green", "sad", "5", true)
+owner.adopt('bird',"lucy", "Brown", "Happy", "10", 5)
+owner.adopt('bird',"lucy", "Brown", "Happy", "10", 5)
+
+
+# fish_one = Bird.new
+
+# fish_one = Bird.new("bird", "green", "sad", "5", true)
+
+# fish_one = Bird.new("bird", "green", "sad", "5", true)
+
+Game.new.start
+
+binding.pry

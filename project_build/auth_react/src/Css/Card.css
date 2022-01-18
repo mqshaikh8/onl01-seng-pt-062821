@@ -1,0 +1,19 @@
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: solid 1px ;
+    margin-top: 10px;
+}
+.primary_content{ 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.card_desc{
+    overflow-wrap: anywhere;
+}

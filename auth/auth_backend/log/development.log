@@ -1,0 +1,220 @@
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (55.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "auth_backend_development"[0m
+  [1m[35m (36.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "auth_backend_test"[0m
+  [1m[35m (186.7ms)[0m  [1m[35mCREATE DATABASE "auth_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (77.4ms)[0m  [1m[35mCREATE DATABASE "auth_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4071528649859395305)[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220113142425)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "age" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220113142425"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-13 14:42:14.773823"], ["updated_at", "2022-01-13 14:42:14.773823"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071528649859395305)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Ms. Jefferson Fritsch"], ["password_digest", "$2a$12$vMGdNKIZ6NWadjwbBxs9gO.ODDSPAzZsBrmbiIN795ug5i153Rn1W"], ["age", 45], ["created_at", "2022-01-13 14:42:17.001709"], ["updated_at", "2022-01-13 14:42:17.001709"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Shae Armstrong IV"], ["password_digest", "$2a$12$nJQ3HeY8/Vqmyd4uSCYFiOXHpvhdfDh3KisfqIIHh0oLTajAOEQUO"], ["age", 23], ["created_at", "2022-01-13 14:42:17.214878"], ["updated_at", "2022-01-13 14:42:17.214878"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Marty Grady"], ["password_digest", "$2a$12$MAfTamLU2BSkAIStXNis9Og3WmxkSgWuyJ0pqwD4L/vF2YGcre5F2"], ["age", 45], ["created_at", "2022-01-13 14:42:17.428809"], ["updated_at", "2022-01-13 14:42:17.428809"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Santo Kirlin"], ["password_digest", "$2a$12$IWzu.Yl5VvUXPpTHVAUQueWHYkeuoLLbtBqPmkIEZMbCSXKogSpjW"], ["age", 22], ["created_at", "2022-01-13 14:42:17.647406"], ["updated_at", "2022-01-13 14:42:17.647406"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Ira Mills"], ["password_digest", "$2a$12$mBBcxI.juDXuGOMtSL9YLudiE2lezG9o..eVFvNBxb3SPnOc3raVa"], ["age", 767], ["created_at", "2022-01-13 14:42:17.858436"], ["updated_at", "2022-01-13 14:42:17.858436"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Patrice Pouros DO"], ["password_digest", "$2a$12$GFPMpO51e93oWb/aM/ej8uVUhyYVtFSdOduGZZ7S3du74URVDWSt2"], ["age", 23], ["created_at", "2022-01-13 14:42:18.486134"], ["updated_at", "2022-01-13 14:42:18.486134"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Fidel Hoppe"], ["password_digest", "$2a$12$Is.QFhhRSyeLXhM/kQbyauODwimA7PGN..j8rnJLBLtlJfUwRIVna"], ["age", 23], ["created_at", "2022-01-13 14:42:18.902996"], ["updated_at", "2022-01-13 14:42:18.902996"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "The Hon. Robbie Hoeger"], ["password_digest", "$2a$12$nYlX0r0ls8SZrUcLPPXwjOLsDE4BaqOQyGb1KEo40aVkxuhDdHM4O"], ["age", 23], ["created_at", "2022-01-13 14:42:19.113540"], ["updated_at", "2022-01-13 14:42:19.113540"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Berniece Swaniawski V"], ["password_digest", "$2a$12$WwAHrqkRuFHXLvoSmOphK.SqzhCXAl.FXS68jsgpVz.Aw6/bdXhMW"], ["age", 23], ["created_at", "2022-01-13 14:42:19.324623"], ["updated_at", "2022-01-13 14:42:19.324623"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Brain Homenick"], ["password_digest", "$2a$12$.9.INyOuSnP4ZwL9Mlb5We3ybUByi738DQpWSjPD6Tewp7dwxpK7O"], ["age", 45], ["created_at", "2022-01-13 14:42:19.535171"], ["updated_at", "2022-01-13 14:42:19.535171"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Donya Cummerata"], ["password_digest", "$2a$12$hhsG7rjnbfl1u0Yp3K5e8eFzjUHQk3Ai1IULO5aR7tFUPZJQFIuCu"], ["age", 8], ["created_at", "2022-01-13 14:42:19.953696"], ["updated_at", "2022-01-13 14:42:19.953696"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Taylor Frami"], ["password_digest", "$2a$12$qy.GhtC04O2xe7S3j7nYi.jZBYOQnBUf76FHdQCNewXt.8CSVjquy"], ["age", 45], ["created_at", "2022-01-13 14:42:20.163885"], ["updated_at", "2022-01-13 14:42:20.163885"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Glenn Torp"], ["password_digest", "$2a$12$Me0gagF/CTCDyw6Du.g7IOMhl6GzBQQS0yiCJgnCwMQX2LfP9Fx6y"], ["age", 43], ["created_at", "2022-01-13 14:42:20.378000"], ["updated_at", "2022-01-13 14:42:20.378000"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Walter Funk DO"], ["password_digest", "$2a$12$VCSjP.vbvy47TF2OcbcHdOnJAVLs5qAkKCdU4qZ0YON13AzLLqHmS"], ["age", 767], ["created_at", "2022-01-13 14:42:20.595365"], ["updated_at", "2022-01-13 14:42:20.595365"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Ellsworth McDermott V"], ["password_digest", "$2a$12$stkwtrY8z3mzlXVZXt.gqONO911duzoUfu9XaoGWmrbwpfl3hLTjW"], ["age", 45], ["created_at", "2022-01-13 14:42:20.812647"], ["updated_at", "2022-01-13 14:42:20.812647"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Anjelica McLaughlin"], ["password_digest", "$2a$12$iEDc9RHjPQYeqxV.OiF2wu//NC.0vXUFemEwVIEmmPT3T/l3LwYvG"], ["age", 23], ["created_at", "2022-01-13 14:42:21.449526"], ["updated_at", "2022-01-13 14:42:21.449526"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Bobbye Armstrong"], ["password_digest", "$2a$12$IvZtDl79bj.4Dx69UaJJuOBzq9OsmfrGcmua2Z3HXHH1RPYU/zQ.6"], ["age", 45], ["created_at", "2022-01-13 14:42:21.665465"], ["updated_at", "2022-01-13 14:42:21.665465"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Ron Swaniawski"], ["password_digest", "$2a$12$xBMEmHF/GWL8f3qAXLBTP.vjwqsyRngBHP9Cafe4a8xtSeSy0SK2."], ["age", 23434], ["created_at", "2022-01-13 14:42:21.877061"], ["updated_at", "2022-01-13 14:42:21.877061"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Mohammed"], ["password_digest", "$2a$12$aQG/obJ/JMtfkTxMU52Gxux68MBBgPUsmaBI8AbevBVTXnrZMg3p6"], ["age", 2], ["created_at", "2022-01-13 14:42:22.294862"], ["updated_at", "2022-01-13 14:42:22.294862"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/rails/info/routes" for ::1 at 2022-01-13 09:49:34 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [31 times] (Duration: 17.7ms | Allocations: 3608)
+  Rendered /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.7ms | Allocations: 1173)
+  Rendered /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 37.7ms | Allocations: 7994)
+  Rendered layout /Users/mqshaikh8/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.4/lib/rails/templates/layouts/application.html.erb (Duration: 39.0ms | Allocations: 8239)
+Completed 200 OK in 79ms (Views: 49.8ms | ActiveRecord: 0.0ms | Allocations: 12280)
+
+
+Started POST "/login" for ::1 at 2022-01-13 09:51:02 -0500
+  
+SyntaxError (/Users/mqshaikh8/Development/batches/062820/auth/auth_backend/app/controllers/application_controller.rb:17: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/application_controller.rb:17: syntax error, unexpected end-of-input, expecting end
+app/controllers/application_controller.rb:17: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/login" for ::1 at 2022-01-13 09:51:47 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Mohammed", "password"=>"[FILTERED]", "user"=>{"username"=>"Mohammed"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mohammed"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.92ms)
+Completed 200 OK in 291ms (Views: 6.2ms | ActiveRecord: 9.3ms | Allocations: 5277)
+
+
+Started POST "/login" for ::1 at 2022-01-13 09:53:01 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Mohammed", "password"=>"[FILTERED]", "user"=>{"username"=>"Mohammed"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mohammed"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.92ms)
+Completed 200 OK in 322ms (Views: 7.1ms | ActiveRecord: 2.8ms | Allocations: 837)
+
+
+Started GET "/login" for ::1 at 2022-01-13 09:56:25 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:56:25 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:56:35 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:57:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:57:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:57:27 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login" for ::1 at 2022-01-13 09:57:54 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/persist" for ::1 at 2022-01-13 09:58:21 -0500
+Processing by UsersController#persist as */*
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 0.0ms | Allocations: 1943)
+
+
+  
+NoMethodError (undefined method `resuce' for #<UsersController:0x007fcf3750be38>
+Did you mean?  rescue):
+  
+app/controllers/application_controller.rb:13:in `decode_token'
+app/controllers/users_controller.rb:60:in `set_user'
+Started GET "/persist" for ::1 at 2022-01-13 09:58:28 -0500
+Processing by UsersController#persist as */*
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1898)
+
+
+  
+NoMethodError (undefined method `resuce' for #<UsersController:0x007fcf34c83560>
+Did you mean?  rescue):
+  
+app/controllers/application_controller.rb:13:in `decode_token'
+app/controllers/users_controller.rb:60:in `set_user'
+Started GET "/persist" for ::1 at 2022-01-13 09:58:48 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.69ms)
+Completed 200 OK in 117ms (Views: 3.7ms | ActiveRecord: 23.3ms | Allocations: 8277)
+
+
+Started GET "/persist" for ::1 at 2022-01-13 09:59:00 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.94ms)
+Completed 200 OK in 17ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 849)
+
+
+Started GET "/persist" for ::1 at 2022-01-13 09:59:20 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 864)
+
+
+Started GET "/persist" for ::1 at 2022-01-13 09:59:24 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 862)
+
+
+Started GET "/persist" for ::1 at 2022-01-13 10:00:10 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 863)
+
+
+Started GET "/persist" for ::1 at 2022-01-13 10:00:14 -0500
+Processing by UsersController#persist as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 846)
+
+

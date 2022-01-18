@@ -1,0 +1,11 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 100vw;
+    background-color:aquamarine
+}
+.nav_link{
+    margin-left: 15px
+}

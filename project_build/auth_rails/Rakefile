@@ -1,0 +1,18 @@
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require_relative "config/application"
+
+Rails.application.load_tasks
+
+desc "drops, creates, migrates, and seeds the database"
+task :reset_db do
+    puts "dropping database..."
+    system "rails db:drop"
+    puts "creating database..."
+    system "rails db:create"
+    puts "migrating database..."
+    system "rails db:migrate"
+    puts "seed database..."
+    system "rails db:seed"
+end
